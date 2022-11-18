@@ -60,9 +60,18 @@ def load_roads(road_list: list[str] = []) -> dict[str, str]:
 
 
 def main():
+    st.set_page_config(
+        page_title='Fluxo de veículos no DF',
+        page_icon='📊',
+        layout='wide'
+    )
+
     st.title('Fluxo de veículos no DF')
 
     ranges = load_ranges()
+
+    st.sidebar.title('Configurações')
+
     time_range = st.sidebar.selectbox(
         'Intervalo de tempo',
         ranges.keys()
